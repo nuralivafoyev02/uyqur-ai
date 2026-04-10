@@ -1,0 +1,13 @@
+{
+  "name": "uyqur-ai-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "webapp"
+  ],
+  "scripts": {
+    "install:webapp": "npm --prefix webapp install",
+    "build:webapp": "npm --prefix webapp run build",
+    "preview:webapp": "npm --prefix webapp run preview"
+  }
+}
