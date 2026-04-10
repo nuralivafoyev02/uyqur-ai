@@ -21,24 +21,14 @@ async function parseResponse(response: Response) {
 }
 
 export async function apiRequest<T>(path: string, init?: RequestInit): Promise<T> {
-  let response: Response;
-  try {
-    response = await fetch(`${API_BASE_URL}${path}`, {
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        ...(init?.headers || {})
-      },
-      ...init
-    });
-  } catch (error) {
-    throw new ApiError(
-      "Backendga ulanib bo'lmadi. VITE_API_BASE_URL, CORS_ORIGINS va cookie sozlamalarini tekshiring.",
-      0,
-      error
-    );
-  }
-
+  const response = await fetch(`${API_BASE_URL}${path}`, {
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      ...(init?.headers || {})
+    },
+    ...init
+  });
   const payload = await parseResponse(response);
   if (!response.ok) {
     const message =

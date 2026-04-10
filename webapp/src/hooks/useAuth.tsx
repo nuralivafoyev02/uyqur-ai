@@ -16,12 +16,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const refresh = async () => {
-    try {
-      const state = await api.get<SessionState>("/api/admin/auth/me");
-      setSession(state);
-    } catch {
-      setSession({ authenticated: false, must_change_password: false, user: null });
-    }
+    const state = await api.get<SessionState>("/api/admin/auth/me");
+    setSession(state);
   };
 
   const logout = async () => {

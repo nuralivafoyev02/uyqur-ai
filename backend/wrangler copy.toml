@@ -1,0 +1,21 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "uyqur-ai-backend"
+main = "src/entry.py"
+compatibility_date = "2026-04-10"
+compatibility_flags = ["python_workers"]
+
+[observability]
+enabled = true
+
+[vars]
+APP_ENV = "production"
+APP_TIMEZONE = "Asia/Tashkent"
+SESSION_COOKIE_NAME = "uyqur_admin_session"
+SESSION_SECURE_COOKIES = "true"
+
+[triggers]
+crons = [
+  "* * * * *",
+  "0 * * * *",
+  "0 19 * * *",
+]

@@ -1,3 +1,17 @@
+Metadata-Version: 2.4
+Name: uyqur-ai-backend
+Version: 0.1.0
+Summary: Telegram support analytics bot backend with admin API for Cloudflare Workers and Supabase.
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi<1.0.0,>=0.116.1
+Requires-Dist: httpx<1.0.0,>=0.28.1
+Requires-Dist: python-multipart<1.0.0,>=0.0.20
+Provides-Extra: dev
+Requires-Dist: pytest<9.0.0,>=8.3.5; extra == "dev"
+Requires-Dist: pytest-asyncio<1.0.0,>=0.26.0; extra == "dev"
+Requires-Dist: uvicorn<1.0.0,>=0.34.2; extra == "dev"
+
 # Backend
 
 `backend/` Cloudflare Workers uchun webhook-first Python xizmatini saqlaydi. U Telegram update'larni qabul qiladi, Supabase orqali ticketlarni yuritadi, boshqaruv guruhiga hisobot yuboradi va admin panel uchun xavfsiz API beradi.
@@ -19,7 +33,7 @@ cd backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .[dev]
-uvicorn app.asgi:app --reload --port 8788
+uvicorn app.main:app --reload --port 8788
 ```
 
 ## Cloudflare Workers dev

@@ -16,10 +16,9 @@ def _set_session_cookie(response: Response, container: AppContainer, token: str)
         value=token,
         httponly=True,
         secure=container.settings.session_secure_cookies,
-        samesite=container.settings.session_cookie_same_site,
+        samesite="lax",
         max_age=container.settings.session_ttl_hours * 3600,
         path="/",
-        domain=container.settings.session_cookie_domain,
     )
 
 
@@ -68,11 +67,7 @@ async def logout(
     container: AppContainer = Depends(get_container),
 ) -> dict:
     await container.auth_service.logout(request.cookies.get(container.settings.session_cookie_name))
-    response.delete_cookie(
-        container.settings.session_cookie_name,
-        path="/",
-        domain=container.settings.session_cookie_domain,
-    )
+    response.delete_cookie(container.settings.session_cookie_name, path="/")
     return {"ok": True}
 
 
