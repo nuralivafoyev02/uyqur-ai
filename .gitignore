@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+backend/.venv/
+/tmp/uyqur-pycache/
+
+# Node
+node_modules/
+webapp/node_modules/
+webapp/dist/
+
+# Wrangler / Cloudflare
+.wrangler/
+backend/.wrangler/
+webapp/.wrangler/
+
+# Env
+.env
+.env.local
+backend/.env
+webapp/.env
+
+# IDE
+.idea/
+.vscode/

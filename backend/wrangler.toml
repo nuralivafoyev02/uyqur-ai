@@ -1,0 +1,23 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "uyqur-ai-backend"
+main = "src/entry.py"
+compatibility_date = "2026-04-10"
+compatibility_flags = ["python_workers"]
+
+[observability]
+enabled = true
+
+[vars]
+APP_ENV = "production"
+APP_BASE_URL = "https://uyqur-ai-backend.example.workers.dev"
+ADMIN_WEBAPP_URL = "https://uyqur-ai-webapp.example.workers.dev"
+CORS_ORIGINS = "https://uyqur-ai-webapp.example.workers.dev"
+APP_TIMEZONE = "Asia/Tashkent"
+SESSION_COOKIE_NAME = "uyqur_admin_session"
+SESSION_COOKIE_SAMESITE = "none"
+SESSION_SECURE_COOKIES = "true"
+
+[triggers]
+crons = [
+  "* * * * *"
+]

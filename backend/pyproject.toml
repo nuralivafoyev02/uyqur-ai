@@ -1,0 +1,46 @@
+[project]
+name = "uyqur-ai-backend"
+version = "0.1.0"
+description = "Telegram support analytics bot backend with admin API for Cloudflare Workers and Supabase."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "eval_type_backport>=0.2.2,<1.0.0",
+  "fastapi>=0.116.1,<1.0.0",
+  "httpx>=0.28.1,<1.0.0",
+  "python-multipart>=0.0.20,<1.0.0",
+]
+
+[dependency-groups]
+dev = [
+  "workers-py",
+  "workers-runtime-sdk",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.5,<9.0.0",
+  "pytest-asyncio>=0.26.0,<1.0.0",
+  "uvicorn>=0.34.2,<1.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = [
+  "app",
+  "app.routes",
+  "app.services",
+  "app.repositories",
+  "app.models",
+  "app.utils",
+]
+py-modules = ["bot"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = [".", "src"]
